@@ -1,0 +1,9 @@
+---
+daletest: 5
+users:
+  - admin
+  - dale1
+host: "%{hiera('profiles::api::host')}"
+
+lookup_options: deep
+keystone::verbose: default_value

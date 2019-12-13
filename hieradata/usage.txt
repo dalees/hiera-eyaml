@@ -1,0 +1,2 @@
+Using lookup from https://github.com/lyraproj/hiera
+$ lookup --config hiera.yaml --vars lookupvars.yml daletest

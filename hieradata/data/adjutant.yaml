@@ -1,0 +1,5 @@
+---
+
+profiles::adjutant::host: "%{hiera('profiles::api::host')}"
+profiles::adjutant::port: '8040'
+profiles::adjutant::url: "https://%{hiera('profiles::adjutant::host')}:%{hiera('profiles::adjutant::port')}/v1"

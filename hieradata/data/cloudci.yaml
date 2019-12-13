@@ -1,0 +1,18 @@
+---
+
+#
+# global definitions
+#
+profiles::management_nic_ipaddress: "%{::ipaddress_eth0}"
+profiles::api::host: "%{openstack_hostprefix}-api1.%{::domain}"
+profiles::dashboard::host: "%{hiera('profiles::epxy::host')}"
+profiles::keystone::host: "%{hiera('profiles::epxy::host')}"
+profiles::rabbit::hosts:
+  - "%{openstack_hostprefix}-mq1.%{::domain}:5672"
+  - "%{openstack_hostprefix}-mq2.%{::domain}:5672"
+
+keystone::verbose: true
+profiles::keystone::admin_user: 'admin'
+profiles::keystone::admin_tenant: 'openstack'
+keystone::admin_token: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQAwDQYJKoZIhvcNAQEBBQAEggEAPNdEUEAFWTnNzN/U+sjwLkUBNEkZDDHWz9RrGi8gaFS88RHZt1ferfKX1g8RsJrSoqUP4RKHmc8dTHa/AImuq6vDTF8i09L72MALEWeHiJBe0zGxrygEmWK9YvM003k/7EEiXiaTwFbkxon2HkxyjQYjtYGKnydX6OZCbf0psN7iFKHWThJJO0/4cEjHYYVbhj8Lg1uCKrgw74b7YL3HCnMO3km9SKNJ3gi5p8+CuRzKP/2mmc9Euy4xrM9LI7tyNSK5L+O8uq6QK2X4ghvk3ubGvIFdCP9z/CEB40gVOAG7trlOFvXYT+UpI7x6wFzIR7LZE4/h539aHHK+jLCoaTBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCmXaW6EaRMcU6u6L6Sas/kgCDSZTD40boQVvxKVnX7uEb2s2aVZByeQXxEAkMCv2Pikw==]
+profiles::keystone::db::password: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQAwDQYJKoZIhvcNAQEBBQAEggEASwpYb0J8G3Mfwe63IxxfSBZX30PsjMb/kbYSR49Nh/vu8sxlMZrknN4/7B3dHqbnVz+s6JoHCKJo7kw9lPY6292Tw3K8Y5olYFsFH6d0TxYY0T5cLNS8vPLddqp6PTDs5pxVyl+F6efbCiWKPI+yDYr5H//jHosehLR818Jq32z6IxzCEE6Jy2FLqSbaW67POJfoH0xQS9+wtT75GyF7XnP9PUetE+ntIibQ7rxI0EShbuEMDm9W0+WwYDgG71r7ZeJKDnTnOIVLV6N+7LjZ+0s6p05ohfmygRwLUto3vjfr12QDNFy6B8Esp5A96yoN1ULoaxmjo+hAXyxXyGkYETA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDizEhynHsy2BUM7ONDXCb9gBBZvi96zbEVPe3edppJZU4B]

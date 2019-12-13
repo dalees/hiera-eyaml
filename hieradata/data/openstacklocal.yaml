@@ -1,0 +1,4 @@
+---
+daletest: domain specific
+
+domainhost: "domainspecific %{hiera('profiles::api::host')}"

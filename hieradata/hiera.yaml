@@ -1,0 +1,30 @@
+version: 5
+defaults:  # Used for any hierarchy level that omits these keys.
+  datadir: data         # This path is relative to hiera.yaml's directory.
+  data_hash: yaml_data  # Use the built-in YAML backend.
+
+hierarchy:
+
+  - name: Domain and Node
+    lookup_key: lookup_eyaml
+    paths:
+      - "%{::node}.%{::domain}.yaml"
+      - "%{::domain}.yaml"
+    options:
+      pkcs7_private_key: secure/keys/private_key.pkcs7.pem
+      pkcs7_private_key: secure/keys/public_key.pkcs7.pem
+
+  - name: Environment
+    lookup_key: lookup_eyaml
+    path: cloudci.yaml
+    options:
+      pkcs7_private_key: secure/keys/private_key.pkcs7.pem
+      pkcs7_private_key: secure/keys/public_key.pkcs7.pem
+
+  - name: Service profiles
+    paths:
+      - adjutant.yaml
+      - horizon.yaml
+
+  - name: Defaults to fall back on
+    path: defaults.yaml

@@ -1,0 +1,2 @@
+---
+daletest: node specific / %{hiera('domainhost')}

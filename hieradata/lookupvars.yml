@@ -1,0 +1,8 @@
+---
+::openstack_hostprefix: dale-dev
+openstack_hostprefix: dale-dev
+::domain: openstacklocal
+::ci_network: 10.0
+::lsbdistcodename: xenial
+::ipaddress_eth0: 10.0.0.100
+::node: dale-dev-api1
